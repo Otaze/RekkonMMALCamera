@@ -14,8 +14,8 @@ std::mutex VideoMMALObject::m_mutex;
 
 VideoMMALObject::VideoMMALObject():
     m_still_preview_format(MMAL_ENCODING_RGB24),
-    m_still_preview_width(960),
-    m_still_preview_height(540),
+    m_still_preview_width(1152),
+    m_still_preview_height(864),
     m_is_still_preview_opened(false),
     m_video_preview_format(MMAL_ENCODING_RGB24),
     m_video_preview_width(960),
