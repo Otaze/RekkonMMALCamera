@@ -1226,12 +1226,12 @@ void VideoMMALObject::encoder_buffer_callback(MMAL_PORT_T *port, MMAL_BUFFER_HEA
   }
 }
 
-void VideoMMALObject::setPreviewVideoImageFormat(int mmal_image_format)
+void VideoMMALObject::setVideoPreviewImageFormat(int mmal_image_format)
 {
     m_video_preview_format = mmal_image_format;
 }
 
-void VideoMMALObject::setPreviewStillImageFormat(int mmal_image_format)
+void VideoMMALObject::setStillPreviewImageFormat(int mmal_image_format)
 {
     m_still_preview_format = mmal_image_format;
 }

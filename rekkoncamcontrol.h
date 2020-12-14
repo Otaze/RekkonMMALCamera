@@ -24,6 +24,9 @@ public:
     unsigned int getStillPreviewWidth() { return m_mmal_instance->getStillPreviewWidth();};
     unsigned int getStillPreviewHeight() { return m_mmal_instance->getStillPreviewHeight();};
     bool isStillPreviewOpened(){ return m_mmal_instance->isStillPreviewOpened();}
+    void setStillPreviewImageFormat(int mmal_image_format);
+    int getStillPreviewImageFormat() {return m_mmal_instance->getStillPreviewImageFormat();};
+
 
     // Controls on Video Preview output
     void setVideoPreviewSize(unsigned int width, unsigned int height);
@@ -34,6 +37,8 @@ public:
     unsigned int getVideoPreviewWidth() { return m_mmal_instance->getVideoPreviewWidth();};
     unsigned int getVideoPreviewHeight() { return m_mmal_instance->getVideoPreviewHeight();};
     bool isVideoPreviewOpened(){ return m_mmal_instance->isVideoPreviewOpened();}
+    void setVideoPreviewImageFormat(int mmal_image_format);
+    int getVideoPreviewImageFormat() {return m_mmal_instance->getVideoPreviewImageFormat();};
 
 
     // Controls on Video Record output
