@@ -12,22 +12,42 @@ public:
     RekkonCamControl();
     ~RekkonCamControl();
 
+    // General camera controls
+
+    bool open();
+    void release();
+
+    // Controls on Still Preview output
+    void setStillPreviewSize(unsigned int width, unsigned int height);
+    void startStillPreview();
+    void stopStillPreview();
+    unsigned int getStillPreviewWidth() { return m_mmal_instance->getStillPreviewWidth();};
+    unsigned int getStillPreviewHeight() { return m_mmal_instance->getStillPreviewHeight();};
+    bool isStillPreviewOpened(){ return m_mmal_instance->isStillPreviewOpened();}
+
     // Controls on Video Preview output
-    void setVideoPreviewResolution(unsigned int width, unsigned int height);
+    void setVideoPreviewSize(unsigned int width, unsigned int height);
     void startVideoPreview();
     void stopVideoPreview();
     bool grab();
     void retrieve(unsigned char *data);
     unsigned int getVideoPreviewWidth() { return m_mmal_instance->getVideoPreviewWidth();};
     unsigned int getVideoPreviewHeight() { return m_mmal_instance->getVideoPreviewHeight();};
+    bool isVideoPreviewOpened(){ return m_mmal_instance->isVideoPreviewOpened();}
 
 
     // Controls on Video Record output
-    void setVideoRecordResolution(unsigned int width, unsigned int height);
+    void setVideoRecordSize(unsigned int width, unsigned int height);
     void startVideoRecord(string filename);
     void stopVideoRecord();
     unsigned int getVideoRecordWidth() { return m_mmal_instance->getVideoRecordWidth();};
     unsigned int getVideoRecordHeight() { return m_mmal_instance->getVideoRecordHeight();};
+
+    // Controls on Still Record output
+    void setStillRecordSize(unsigned int width, unsigned int height);
+    void startStillRecord(string filename);
+    unsigned int getStillRecordWidth() { return m_mmal_instance->getStillRecordWidth();};
+    unsigned int getStillRecordHeight() { return m_mmal_instance->getStillRecordHeight();};
 
     // Controls on Camera components
 

@@ -13,17 +13,58 @@
 
 RekkonCamControl::RekkonCamControl()
 {
-m_mmal_instance = VideoMMALObject::instance();
+    m_mmal_instance = VideoMMALObject::instance();
 }
 
 
 RekkonCamControl::~RekkonCamControl(){}
 
 // --------------------------------------------------
+// General camera controls
+// --------------------------------------------------
+
+bool RekkonCamControl::open()
+{
+    return m_mmal_instance->open();
+}
+
+void RekkonCamControl::release()
+{
+    m_mmal_instance->release();
+}
+
+
+// --------------------------------------------------
+// Controls on Still Preview output
+// --------------------------------------------------
+
+
+void RekkonCamControl::setStillPreviewSize(unsigned int width, unsigned int height)
+{
+    m_mmal_instance->setStillPreviewSize(width,height);
+}
+
+/**
+ * @brief RekkonCamControl::startStillPreview
+ * Create and enable the Still preview components
+ * /!\ Do not work if Video components enabled
+ */
+void RekkonCamControl::startStillPreview()
+{
+    m_mmal_instance->startStillPreview();
+}
+
+void RekkonCamControl::stopStillPreview()
+{
+    m_mmal_instance->stopStillPreview();
+}
+
+
+// --------------------------------------------------
 // Controls on Video Preview output
 // --------------------------------------------------
 
-void RekkonCamControl::setVideoPreviewResolution(unsigned int width, unsigned int height)
+void RekkonCamControl::setVideoPreviewSize(unsigned int width, unsigned int height)
 {
     m_mmal_instance->setVideoPreviewSize(width,height);
 }
@@ -36,6 +77,10 @@ void RekkonCamControl::stopVideoPreview()
 {
     m_mmal_instance->stopVideoPreview();
 }
+
+// --------------------------------------------------
+// Controls on both Preview output
+// --------------------------------------------------
 
 bool RekkonCamControl::grab()
 {
@@ -51,7 +96,7 @@ void RekkonCamControl::retrieve(unsigned char *data)
 // Controls on Video Record output
 // --------------------------------------------------
 
-void RekkonCamControl::setVideoRecordResolution(unsigned int width, unsigned int height)
+void RekkonCamControl::setVideoRecordSize(unsigned int width, unsigned int height)
 {
     m_mmal_instance->setVideoRecordSize(width,height);
 }
@@ -62,6 +107,19 @@ void RekkonCamControl::startVideoRecord(string filename)
 void RekkonCamControl::stopVideoRecord()
 {
     m_mmal_instance->stopVideoRecord();
+}
+
+// --------------------------------------------------
+// Controls on Still Record output
+// --------------------------------------------------
+
+void RekkonCamControl::setStillRecordSize(unsigned int width, unsigned int height)
+{
+    m_mmal_instance->setStillRecordSize(width,height);
+}
+void RekkonCamControl::startStillRecord(string filename)
+{
+    m_mmal_instance->startStillRecord(filename);
 }
 
 // --------------------------------------------------
