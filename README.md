@@ -3,7 +3,7 @@
 The purpose RekkonMMALCamera is to provide an easy access to the functionnality offered by the camera module of the raspberry pi in C++.
 The library use the MMAL API mainly and the schema of the components are as follows:
 
-**#components schema**
+![Schema of the mmal components used in lib](./images/RekkonCamSchema.jpg "Schema of the mmal components used in lib")
 
 The recommended resolution for the preview component are 540p (960\*540 | 16/9) for the video and 1MPx (1152\*864 | 4/3) if you want 30 frames per seconds. This is due to hardware limitation in the convertion from yuv420 to rgb / bgr. You can go in higher resolution at your own risks. just remember that due to process architecture, video preview cannot be at higher resolution that video record.
 
