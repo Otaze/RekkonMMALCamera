@@ -131,7 +131,7 @@ public:
 
     void setStillPreviewSize(unsigned int preview_width, unsigned int preview_height);
     void setStillPreviewImageFormat(int mmal_image_format);
-    int getStillPreviewImageFormat() { return m_still_preview_format};
+    int getStillPreviewImageFormat() { return m_still_preview_format;};
     void startStillPreview();
     void stopStillPreview();
     unsigned int getStillPreviewWidth(){ return m_still_preview_width;};
@@ -141,7 +141,7 @@ public:
 
     void setVideoPreviewSize(unsigned int preview_width, unsigned int preview_height);
     void setVideoPreviewImageFormat(int mmal_image_format);
-    int getVideoPreviewImageFormat() { return m_video_preview_format};
+    int getVideoPreviewImageFormat() { return m_video_preview_format;};
     void startVideoPreview();
     void stopVideoPreview();
     unsigned int getVideoPreviewWidth(){ return m_video_preview_width;};
